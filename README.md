@@ -15,4 +15,4 @@ Al clickar el segundo botón, se podrá acceder a la lista de entrenamientos que
 
 El tercer botón dará acceso a un calendario que permitirá asignar a cada día tareas/objetivos que cumplir. Estos objetivos se podrán marcar como completados una vez el usuario los haya realizado. 
 
-##Definición técnica
+## Definición técnica
