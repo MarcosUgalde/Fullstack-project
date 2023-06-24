@@ -16,3 +16,23 @@ Al clickar el segundo botón, se podrá acceder a la lista de entrenamientos que
 El tercer botón dará acceso a un calendario que permitirá asignar a cada día tareas/objetivos que cumplir. Estos objetivos se podrán marcar como completados una vez el usuario los haya realizado. 
 
 ## Definición técnica
+
+### Backend
+
+Se deben crear tres tablas de sql: 
+1) workouts;
+2) sets, debe tener una columna que referencie a workouts, además de la información específica de esta tabla;
+3) exercises debe tener una columa que referencie a sets, además de la información específica de esta tabla;
+
+Se añadirá una tabla extra para almmacenar las tareas/objetivos que se añadan en el calendario.
+
+Hay que crear un modelo de Entrenamientos que incluya una query que reciba el nombre del entrenamiento, los sets que tendrá ese entrenamiento y los ejercicios incluidos en cada set. 
+Habrá que crear un endopint POST /addworkout que añada a la tabla de workouts el nombre del entrenamiento; a la tabla de sets añadirá tantos rows como sets se hayan creado y todos esos sets tendrán en la columna workout_id la id del entrenamiento recién creado; de igual modo, se añadirán los ejercicios creados a la tabla de exercises y cada ejercicio tendrá la columna sets_id cuyo valor será igual al id del set en el que esté incluido.
+
+Hay que crear un endpoint GET /workouts que nos muestre todos los entrenamientos que se han almacenado. (Solo mostrará las creadas por el usuario logado).
+También se debe añadir un endpoint GET /workouts/:id cuando queramos acceder a un único entrenamiento.
+Se debe añadir un endpoint PUT en la ruta /workouts/:id para modificar un entrenamiento almacenado.
+Se debe añadir un endpoint DELETE para la ruta /workouts/:id para eliminar un entrenamiento.
+
+Se debe añadir un endpoint GET /workouts/:id/train en el que se reproduzca el entrenamiento, comenzando por el primer ejercicio y según vaya pasando el tiempo se vaya mostrando el set, la ronda y el ejercicio que hay que realizar.
+
