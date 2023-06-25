@@ -44,7 +44,7 @@ Se añadirá un endpoint GET /calendar/:id que nos muestre las tareas del día s
 Se añadirá un endpoint PUT /calendar:id que nos permita modificar la lista de tareas del día seleccionado.
 Se añadirá un endpoint DELETE /calendar:id que nos permita eliminar tareas en el día seleccionado.
 
-### Frontned
+### Frontend
 
 ![image](https://github.com/MarcosUgalde/Fullstack-project/assets/82014451/76d612cf-44f3-4df6-886b-1afe49d23128)
 
