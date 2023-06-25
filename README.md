@@ -24,7 +24,7 @@ Se deben crear tres tablas de sql:
 2) sets, debe tener una columna que referencie a workouts, además de la información específica de esta tabla;
 3) exercises debe tener una columa que referencie a sets, además de la información específica de esta tabla;
 
-Se añadirá una tabla extra para almmacenar las tareas/objetivos que se añadan en el calendario.
+Se añadirá una tabla "tasks" para almmacenar las tareas/objetivos que se añadan en el calendario.
 
 Hay que crear un modelo de Entrenamientos que incluya una query que reciba el nombre del entrenamiento, los sets que tendrá ese entrenamiento y los ejercicios incluidos en cada set. 
 Habrá que crear un endopint POST /addworkout que añada a la tabla de workouts el nombre del entrenamiento; a la tabla de sets añadirá tantos rows como sets se hayan creado y todos esos sets tendrán en la columna workout_id la id del entrenamiento recién creado; de igual modo, se añadirán los ejercicios creados a la tabla de exercises y cada ejercicio tendrá la columna sets_id cuyo valor será igual al id del set en el que esté incluido.
@@ -35,4 +35,18 @@ Se debe añadir un endpoint PUT en la ruta /workouts/:id para modificar un entre
 Se debe añadir un endpoint DELETE para la ruta /workouts/:id para eliminar un entrenamiento.
 
 Se debe añadir un endpoint GET /workouts/:id/train en el que se reproduzca el entrenamiento, comenzando por el primer ejercicio y según vaya pasando el tiempo se vaya mostrando el set, la ronda y el ejercicio que hay que realizar.
+
+Hay que crear un modelo de Tareas que incluya una query para añadir tareas a un la tabla "tasks".
+También aquí será necesario crear un endopoint POST calendar/addtask/:id que nos permita añadir tareas a cada día.
+
+Se añadirá un endpoint GET /calendar que nos muestre el calendario.
+Se añadirá un endpoint GET /calendar/:id que nos muestre las tareas del día seleccionado. 
+Se añadirá un endpoint PUT /calendar:id que nos permita modificar la lista de tareas del día seleccionado.
+Se añadirá un endpoint DELETE /calendar:id que nos permita eliminar tareas en el día seleccionado.
+
+### Frontned
+
+![image](https://github.com/MarcosUgalde/Fullstack-project/assets/82014451/76d612cf-44f3-4df6-886b-1afe49d23128)
+
+![image](https://github.com/MarcosUgalde/Fullstack-project/assets/82014451/73bd9da0-fd1f-485a-9dfa-d33ee444eb2d)
 
