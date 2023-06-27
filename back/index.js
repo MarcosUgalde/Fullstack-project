@@ -15,8 +15,15 @@ const routes = require("./routes");
 
 app.use(routes(db));
 
-app.use((_, _, next) => {
+app.use((_, __, next) => {
   next(errors[404]);
+});
+
+app.use(({ statusCode, error }, _, res, __) => {
+  res.status(statusCode).json({
+    success: false,
+    message: error.message,
+  });
 });
 
 app.listen(process.env.PORT, () =>

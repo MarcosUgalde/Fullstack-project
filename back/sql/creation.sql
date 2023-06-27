@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS workouts (
 
 CREATE TABLE IF NOT EXISTS sets (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    set_name TEXT NOT NULL,
-    reps INTEGER,
+    name TEXT NOT NULL,
+    rounds INTEGER,
     rest_time INTEGER,
     workout_id uuid NOT NULL REFERENCES workouts
         ON UPDATE CASCADE
