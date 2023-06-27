@@ -17,9 +17,17 @@ const createUser = (db) => async (email, username, password) => {
 
 const selecUser = (db) => async (email, compareFn) => {
   try {
-    const user = await db.maybeone(selectByEmail(email));
+    const user = await db.maybeOne(selectByEmail(email));
 
     if (!user)
+      return {
+        ok: false,
+        error_code: "wrong_data",
+      };
+
+    const areEqual = await compareFn(user.password);
+
+    if (!areEqual)
       return {
         ok: false,
         error_code: "wrong_data",
