@@ -63,7 +63,15 @@ Tanto la página de Login como la de Register incluirán un link que se redirija
 
 La página principal debe tener un menú con tres opciones que nos redirigirán a diferentes pantallas.
 
-La primera opción "Create new workout" nos llevará a una nueva página en la que podremos añadir los ejercicios que contendrá el entrenamiento que estamos creando. También tendremos un Formulario
+La primera opción "Create new workout" nos llevará a una nueva página en la que podremos añadir los ejercicios que contendrá el entrenamiento que estamos creando. También tendremos un Formulario que contará con un campo para introducir el nombre del ejercicio, un campo para introducir el nombre del set, un campo para introducir el nombre del ejercicio, otro campo para añadir la descripción y un input para indicar el tiempo que deberá realizarse el ejercicio. Según se vayan añadiendo ejercicios se irá desplegando una lista con los ejercicios añadidos a ese set hasta el momento.
+También habrá un campo para indicar las veces que se realizará el set y el tiempo de descanso entre cada ronda.
+Se contará con un botón para añadir nuevos sets que desplegará un formulario idéntico al del primer set.
+Por último habrá un botón para guardar el entrenamiento, almacenando toda la información introducida en cuanto a los sets, que contiene, los ejercicios, etc.
+
+De vuelta a la página principal, la segunda opción llevará al usuario a una página que nos mostrará los entrenamientos que ya tenemos almacenados.
+Cuando el usuario haga click en un entrenamiento, la aplicación redirigirá a una página que mostrará los sets que contiene ese entrenamiento y los ejercicios incluidos en cada set.
+Desde esta pantalla se podrá editar el entrenamiento y eliminarlo. También habrá un tercer botón que llevará a una nueva página en la que se ejecutará el entrenamiento.
+Esta página mostrará el set en el que se encuentra el usuario, la ronda que se está ejecutando, el ejercicio y el tiempo que quedá de realizar el ejercicio presente. También se mostrará la descripción del ejercicio en caso de que el usuario la haya añadido. Se incluirá un botón para que el usuario ponga en pausa el entrenamiento y otro para terminar el entrenamiento.
 
 ![image](https://github.com/MarcosUgalde/Fullstack-project/assets/82014451/76d612cf-44f3-4df6-886b-1afe49d23128)
 
