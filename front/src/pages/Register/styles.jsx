@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 const Body = styled.section`
     display: flex;
-    flex-direcion: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center; 
 `
