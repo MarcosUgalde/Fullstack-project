@@ -16,7 +16,16 @@ const insertSet = (name, rounds, rest_time, workout_id) => sql.unsafe`
         )
 `;
 
+const insertExercise = (name, description, duration, set_id) => sql.unsafe`
+        INSERT INTO exercises (
+            name, description, duration, set_id
+        ) VALUES (
+            ${name}, ${description}, ${duration}, ${set_id}
+        )
+`;
+
 module.exports = {
   inserWorkout,
   insertSet,
+  insertExercise,
 };
