@@ -1,7 +1,7 @@
 import Styled from './styles'
 import { useForm } from 'react-hook-form'
 import { login } from '../../misc/templates'
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation } from 'react-query'
 import { auth } from '../../services'
 
 
