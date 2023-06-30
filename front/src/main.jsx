@@ -4,6 +4,8 @@ import Provider from './context/Provider'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import { Switch, Route } from 'wouter'
+import Mainmenu from './pages/Mainmenu'
+import Guard from './components/Guard'
 
 const Main = () => {
   return (
@@ -11,6 +13,9 @@ const Main = () => {
       <Switch>
         <Route path='/signup' component={Register} />
         <Route path='/login' component={Login}/>
+        <Route path='/'>  
+          <Guard component={Mainmenu} />
+        </Route>
       </Switch>
     </Provider>
   )
