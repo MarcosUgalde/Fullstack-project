@@ -3,19 +3,11 @@ import { useForm } from 'react-hook-form'
 import { login } from '../../misc/templates'
 import { useMutation, useQueryClient } from 'react-query'
 import { auth } from '../../services'
-import { useQuery } from 'react-query'
-import { user } from '../../services'
 import { useEffect } from 'react'
 import { useLocation } from 'wouter'
+import { useUser } from '../../hooks'
 
-const useUser = () => {
-    const { data, isLoading } = useQuery({
-        querykey: ['user'],
-        queryFn: user.info
-    });
 
-    return { data, isLoading }
-}
 
 function Login() {
     const { register, formState, handleSubmit } = useForm();
