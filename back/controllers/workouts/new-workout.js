@@ -1,4 +1,4 @@
-const { createWorkout, createSet } = require("../../models/workouts");
+const { createWorkout } = require("../../models/workouts");
 
 module.exports = (db) => async (req, res, next) => {
   const { name, user_id } = req.body;
