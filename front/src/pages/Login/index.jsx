@@ -41,9 +41,6 @@ function Login() {
                         <label htmlFor="email">Inser email</label>
                         <input type="text" id='email' placeholder='example@gmail.com' {...register("email", {required: true})} />
                         <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
-                        <label>username</label>
-                            <input type="text" id='username' placeholder='username' {...register("username", { required: true})} />
-                            <p>{formState.errors && errors[formState.errors?.username?.type]}</p>
                         <label>password</label>
                         <input type="password" id='password' placeholder='*******' {...register("password", {required: true, minLength: 4})} />
                         <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
