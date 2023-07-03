@@ -19,6 +19,15 @@ const createWorkout = (db) => async (name, user_id) => {
 const createSet = (db) => async (name, rounds, rest_time, workout_id) => {
   try {
     await db.query(insertSet(name, rounds, rest_time, workout_id));
+    const response = await db.transaction(async (tx) => {
+      await tx.query(insertSet(name, rounds, rest_time, workout_id));
+      await tx.query(insertWorkout(name, user_id));
+      await tx.query(insertExercise(name, description, duration, set_id));
+
+      await createExercise(tx)(name, description, duration, set_id);
+
+      return false;
+    });
     return {
       ok: true,
     };
