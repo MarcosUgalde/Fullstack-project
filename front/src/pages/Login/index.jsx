@@ -1,4 +1,4 @@
-// import { Styled } from './styles'
+import Styled from './styles'
 import { useForm } from 'react-hook-form'
 import { login } from '../../misc/templates'
 import { useMutation, useQueryClient } from 'react-query'
@@ -35,19 +35,24 @@ function Login() {
     const { errors } = login
 
     return (
-        <>
+        <Styled.Page>
             <h1>Login</h1>
-                <form onSubmit={handleSubmit(handleForm)}>
-                        <label htmlFor="email">Inser email</label>
-                        <input type="text" id='email' placeholder='example@gmail.com' {...register("email", {required: true})} />
-                        <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
-                        <label>password</label>
-                        <input type="password" id='password' placeholder='*******' {...register("password", {required: true, minLength: 4})} />
-                        <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
-                    
-                    <input type='submit' />
-                </form>
-       </>
+                <Styled.Questionaire>
+                    <form onSubmit={handleSubmit(handleForm)}>
+                            <Styled.Item>
+                                <label htmlFor="email">Inser email</label>
+                                <input type="text" id='email' placeholder='example@gmail.com' {...register("email", {required: true})} />
+                                <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
+                            </Styled.Item>
+                            <Styled.Item>
+                                <label>password</label>
+                                <input type="password" id='password' placeholder='*******' {...register("password", {required: true, minLength: 4})} />
+                                <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
+                            </Styled.Item>                     
+                        <input type='submit' />
+                    </form>
+                </Styled.Questionaire>
+       </Styled.Page>
     )
 }
 
