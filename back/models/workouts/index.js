@@ -55,8 +55,50 @@ const createExercise = (db) => async (name, description, duration, set_id) => {
   }
 };
 
+const createCompleteWorkout =
+  (db) =>
+  async (
+    workoutName,
+    userName,
+    setName,
+    rounds,
+    restTime,
+    exerciseName,
+    description,
+    duration
+  ) => {
+    try {
+      const response = await db.transaction(async (tx) => {
+        await tx.query(insertWorkout(workoutName, userName));
+
+        const setResponse = await tx.query(
+          insertSet(setname, rounds, restTime, workout_id)
+        );
+
+        const set_id = setResponse.insertId;
+
+        await tx.query(
+          insertExercise(exerciseName, description, duration, set_id)
+        );
+
+        return {
+          ok: true,
+        };
+      });
+
+      return response;
+    } catch (error) {
+      console.info("Create complete workout error: ", error.message);
+      return {
+        ok: false,
+        message: error.messaage,
+      };
+    }
+  };
+
 module.exports = {
   createWorkout,
   createSet,
   createExercise,
+  createCompleteWorkout,
 };
