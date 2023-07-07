@@ -1,8 +1,8 @@
 const { inserWorkout, insertSet, insertExercise } = require("./queries");
 
-const createWorkout = (db) => async (name, user_id) => {
+const createWorkout = (db) => async (workoutName, user_id) => {
   try {
-    await db.query(inserWorkout(name, user_id));
+    await db.query(inserWorkout(workoutName, user_id));
 
     return {
       ok: true,
@@ -16,9 +16,9 @@ const createWorkout = (db) => async (name, user_id) => {
   }
 };
 
-const createSet = (db) => async (name, rounds, rest_time, workout_id) => {
+const createSet = (db) => async (setName, rounds, rest_time, workout_id) => {
   try {
-    await db.query(insertSet(name, rounds, rest_time, workout_id));
+    await db.query(insertSet(setName, rounds, rest_time, workout_id));
     /*     const response = await db.transaction(async (tx) => {
       await tx.query(insertSet(name, rounds, rest_time, workout_id));
       await tx.query(insertWorkout(name, user_id));
@@ -40,39 +40,43 @@ const createSet = (db) => async (name, rounds, rest_time, workout_id) => {
   }
 };
 
-const createExercise = (db) => async (name, description, duration, set_id) => {
-  try {
-    await db.query(insertExercise(name, description, duration, set_id));
-    return {
-      ok: true,
-    };
-  } catch (error) {
-    console.info("Create exercise error: ", error.message);
-    return {
-      ok: false,
-      message: error.message,
-    };
-  }
-};
+const createExercise =
+  (db) => async (exerciseName, description, duration, set_id) => {
+    try {
+      await db.query(
+        insertExercise(exerciseName, description, duration, set_id)
+      );
+      return {
+        ok: true,
+      };
+    } catch (error) {
+      console.info("Create exercise error: ", error.message);
+      return {
+        ok: false,
+        message: error.message,
+      };
+    }
+  };
 
 const createCompleteWorkout =
   (db) =>
   async (
     workoutName,
-    userName,
+    user_id,
+    workout_id,
     setName,
     rounds,
-    restTime,
+    rest_time,
     exerciseName,
     description,
     duration
   ) => {
     try {
       const response = await db.transaction(async (tx) => {
-        await tx.query(insertWorkout(workoutName, userName));
+        await tx.query(insertWorkout(workoutName, user_id));
 
         const setResponse = await tx.query(
-          insertSet(setname, rounds, restTime, workout_id)
+          insertSet(setName, rounds, rest_time, workout_id)
         );
 
         const set_id = setResponse.insertId;
