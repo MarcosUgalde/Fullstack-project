@@ -3,4 +3,5 @@ module.exports = {
   addSet: require("./new-set"),
   addExercise: require("./new-exercise"),
   addCompleteWorkout: require("./complete-workout"),
+  getWorkouts: require("./get-workouts"),
 };

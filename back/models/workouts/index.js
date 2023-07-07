@@ -1,4 +1,9 @@
-const { inserWorkout, insertSet, insertExercise } = require("./queries");
+const {
+  inserWorkout,
+  insertSet,
+  insertExercise,
+  selectWorkoutsByUser,
+} = require("./queries");
 
 const createWorkout = (db) => async (workoutName, user_id) => {
   try {
@@ -95,14 +100,31 @@ const createCompleteWorkout =
       console.info("Create complete workout error: ", error.message);
       return {
         ok: false,
-        message: error.messaage,
+        message: error.message,
       };
     }
   };
+
+const getWorkoutsByUser = (db) => async (id) => {
+  try {
+    await db.maybeOne(selectWorkoutsByUser(id));
+
+    return {
+      ok: true,
+    };
+  } catch (error) {
+    console.info("Get workouts by user error: ", error.message);
+    return {
+      ok: true,
+      message: error.message,
+    };
+  }
+};
 
 module.exports = {
   createWorkout,
   createSet,
   createExercise,
   createCompleteWorkout,
+  getWorkoutsByUser,
 };
