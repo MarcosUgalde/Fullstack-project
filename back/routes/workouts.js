@@ -12,7 +12,7 @@ module.exports = (db) => {
     authorizer,
     workoutControllers.addCompleteWorkout(db)
   );
-  router.get("/workouts", authorizer, workoutControllers.getWorkouts(db));
+  router.get("/all", authorizer, workoutControllers.getWorkouts(db));
 
   return router;
 };
