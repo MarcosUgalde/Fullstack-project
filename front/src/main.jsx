@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import { Switch, Route, Redirect } from 'wouter'
 import Mainmenu from './pages/Mainmenu'
+import Createworkout from './pages/Createworkout'
 import Guard from './components/Guard'
 
 const Main = () => {
@@ -16,6 +17,7 @@ const Main = () => {
         <Route path='/'>  
           <Guard component={Mainmenu} />
         </Route>
+        <Route path='/new-workout' component={Createworkout} />
         <Redirect to='/login' />
       </Switch>
     </Provider>
