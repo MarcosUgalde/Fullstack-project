@@ -1,8 +1,9 @@
 const { getWorkoutsByUser } = require("../../models/workouts");
 
 module.exports = (db) => async (req, res, next) => {
-  const { id } = res.locals;
-  const workouts = await getWorkoutsByUser(await db)(id);
+  const { email } = res.locals;
+  console.log(res.locals);
+  const workouts = await getWorkoutsByUser(await db)(email);
 
   if (!workouts.ok) return next(errors[500]);
 

@@ -105,12 +105,13 @@ const createCompleteWorkout =
     }
   };
 
-const getWorkoutsByUser = (db) => async (id) => {
+const getWorkoutsByUser = (db) => async (email) => {
   try {
-    await db.maybeOne(selectWorkoutsByUser(id));
+    const response = await db.query(selectWorkoutsByUser(email));
 
     return {
       ok: true,
+      data: response.rows,
     };
   } catch (error) {
     console.info("Get workouts by user error: ", error.message);

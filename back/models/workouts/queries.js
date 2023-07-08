@@ -32,7 +32,7 @@ const insertExercise = (
 // La siguiente query la tendré que modificar. Para la lista de workouts de un usuario no necesito toda esta información
 // Para la información de un workout almacenado tampoco necesito toda esta información
 
-const selectWorkoutsByUser = (id) => sql.unsafe`
+const selectWorkoutsByUser = (email) => sql.unsafe`
         SELECT users.username, workouts.name, sets.name, sets.rounds, sets.rest_time, exercises.name, exercises.description, exercises.duration FROM users
         INNER JOIN workouts 
         ON users.id = workouts.creator_id
@@ -40,7 +40,7 @@ const selectWorkoutsByUser = (id) => sql.unsafe`
         ON workouts.id = sets.workout_id
         INNER JOIN exercises
         ON sets.id = exercises.set_id
-        WHERE users.id = ${id}
+        WHERE users.email = ${email}
 `;
 
 module.exports = {
