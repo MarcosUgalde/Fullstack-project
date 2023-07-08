@@ -1,19 +1,21 @@
 const { sql } = require("slonik");
 
-const inserWorkout = (workoutName, user_id) => sql.unsafe`
+const insertWorkout = (workoutName, user_id) => sql.unsafe`
     INSERT INTO workouts (
-        name, creator_id
+        workout_name, creator_id
     ) VALUES (
         ${workoutName}, ${user_id}
     )
+    RETURNING id
 `;
 
 const insertSet = (setName, rounds, rest_time, workout_id) => sql.unsafe`
         INSERT INTO sets (
-            name, rounds, rest_time, workout_id
+            set_name, rounds, rest_time, workout_id
         ) VALUES (
             ${setName}, ${rounds}, ${rest_time}, ${workout_id}
         )
+        RETURNING id
 `;
 
 const insertExercise = (
@@ -23,7 +25,7 @@ const insertExercise = (
   set_id
 ) => sql.unsafe`
         INSERT INTO exercises (
-            name, description, duration, set_id
+            exercise_name, description, duration, set_id
         ) VALUES (
             ${exerciseName}, ${description}, ${duration}, ${set_id}
         )
@@ -33,7 +35,7 @@ const insertExercise = (
 // Para la información de un workout almacenado tampoco necesito toda esta información
 
 const selectWorkoutsByUser = (email) => sql.unsafe`
-        SELECT users.username, workouts.name, sets.name, sets.rounds, sets.rest_time, exercises.name, exercises.description, exercises.duration FROM users
+        SELECT users.username, workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name, exercises.description, exercises.duration FROM users
         INNER JOIN workouts 
         ON users.id = workouts.creator_id
         INNER JOIN sets
@@ -44,7 +46,7 @@ const selectWorkoutsByUser = (email) => sql.unsafe`
 `;
 
 module.exports = {
-  inserWorkout,
+  insertWorkout,
   insertSet,
   insertExercise,
   selectWorkoutsByUser,

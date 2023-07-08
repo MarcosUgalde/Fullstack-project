@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS workouts (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL UNIQUE,
+    workout_name TEXT NOT NULL UNIQUE,
     creator_id uuid NOT NULL REFERENCES users
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS workouts (
 
 CREATE TABLE IF NOT EXISTS sets (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL,
+    set_name TEXT NOT NULL,
     rounds INTEGER,
     rest_time INTEGER,
     workout_id uuid NOT NULL REFERENCES workouts
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS sets (
 
 CREATE TABLE IF NOT EXISTS exercises (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name TEXT NOT NULL,
+    exercise_name TEXT NOT NULL,
     description TEXT,
     duration TEXT NOT NULL,
     set_id uuid NOT NULL REFERENCES sets
