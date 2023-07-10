@@ -6,4 +6,12 @@ const createWorkout =
       .then((res) => res.data);
   };
 
-export { createWorkout };
+const createSet =
+  (client) =>
+  ({ payload }) => {
+    return client
+      .post("http://localhost:4000/workouts/newset", payload)
+      .then((res) => res.data);
+  };
+
+export { createWorkout, createSet };
