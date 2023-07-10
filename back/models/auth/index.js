@@ -38,6 +38,7 @@ const selecUser = (db) => async (email, compareFn) => {
       content: {
         email: user.email,
         username: user.username,
+        id: user.id,
       },
     };
   } catch (error) {

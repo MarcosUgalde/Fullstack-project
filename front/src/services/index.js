@@ -1,6 +1,7 @@
 import axios from "axios";
 import { register, signin } from "./auth";
 import { info } from "./user";
+import { createWorkout } from "./workouts";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -16,4 +17,8 @@ const user = {
   info: info(client),
 };
 
-export { auth, user };
+const workout = {
+  create: createWorkout(client),
+};
+
+export { auth, user, workout };
