@@ -7,6 +7,7 @@ function Createworkout() {
     const [payload, setPayload] = useState();
     
     const { mutate } = useMutation(() => workout.create({ payload }))
+    const { mutate: setMutate } = useMutation(() => workout.addset({ payload }))
     
     return (
         <Styled.Body>
@@ -25,7 +26,7 @@ function Createworkout() {
                         [e.target.name]: e.target.value,
                     })
                 }}></input>
-                <button>Continue</button>
+                <button onClick={() => { setMutate(payload) }}>Continue</button>
                 <input type='text' placeholder='Exercise name' onChange={(e) => {
                     setPayload({
                         ...payload,

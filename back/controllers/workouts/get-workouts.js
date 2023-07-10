@@ -1,4 +1,5 @@
 const { getWorkoutsByUser } = require("../../models/workouts");
+const errors = require("../../misc/errors");
 
 module.exports = (db) => async (req, res, next) => {
   const { email } = res.locals;

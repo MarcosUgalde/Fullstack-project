@@ -1,4 +1,5 @@
 const { createExercise } = require("../../models/workouts");
+const errors = require("../../misc/errors");
 
 module.exports = (db) => async (req, res, next) => {
   const { name, description, duration, set_id } = req.body;
