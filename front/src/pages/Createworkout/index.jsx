@@ -19,7 +19,7 @@ function Createworkout() {
                     })
                 }}></input>
                 <button onClick={() => { mutate(payload) }}>Continue</button>
-                <input type="text" placeholder='Insert set name' onChange={(e) => {
+                <input type="text" name='name' placeholder='Insert set name' onChange={(e) => {
                     setPayload({
                         ...payload,
                         [e.target.name]: e.target.value,
