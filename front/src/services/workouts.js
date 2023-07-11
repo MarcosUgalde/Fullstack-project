@@ -14,4 +14,12 @@ const createSet =
       .then((res) => res.data);
   };
 
-export { createWorkout, createSet };
+const createExercise =
+  (client) =>
+  ({ payload }) => {
+    return client
+      .post("http://localhost:4000/workouts/newexercise", payload)
+      .then((res) => res.data);
+  };
+
+export { createWorkout, createSet, createExercise };

@@ -11,6 +11,8 @@ function Createworkout() {
     const { mutate,data } = useMutation(() => workout.create({ payload }))
 
     const { mutate: setMutate } = useMutation((payload) => workout.addset({ payload }))
+
+    const { mutate: setMutateExercise } = useMutation((payload) => workout.addexercise({ payload }))
     
     return (
         <Styled.Body>
@@ -52,11 +54,11 @@ function Createworkout() {
                 }}></input>
                 <input type='text' placeholder='Description (optional)'></input>
                 <input type='text' placeholder='Duration (seconds)'></input>
+                <button onClick={() => setMutateExercise({})}>Add Exercise</button>
                 <ul>
                     <li></li>
                 </ul>
             </Styled.Form>
-            <button>Add set</button>
             <input type='submit'></input>
         </Styled.Body>
     )
