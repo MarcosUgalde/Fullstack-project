@@ -5,12 +5,11 @@ import { workout } from '../../services'
 
 function Createworkout() {
     const [payload, setPayload] = useState();
-
-    //const workoutId = '';
     
     const { mutate,data } = useMutation(() => workout.create({ payload }))
 
-    const { mutate: setMutate } = useMutation((payload) => workout.addset({ payload }))
+    const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
+    console.log(setData)
 
     const { mutate: setMutateExercise } = useMutation((payload) => workout.addexercise({ payload }))
     
@@ -46,14 +45,24 @@ function Createworkout() {
                     })
                 }}></input>
                 <button onClick={() => { setMutate({...payload, workoutId: data.data.id}) }}>Continue</button>
-                <input type='text' name='' placeholder='Exercise name' onChange={(e) => {
+                <input type='text' name='exerciseName' placeholder='Exercise name' onChange={(e) => {
                     setPayload({
                         ...payload,
                         [e.target.name]: e.target.value,
                     })
                 }}></input>
-                <input type='text' placeholder='Description (optional)'></input>
-                <input type='text' placeholder='Duration (seconds)'></input>
+                <input type='text' name='description' placeholder='Description (optional)' onChange={(e) => {
+                    setPayload({
+                        ...payload,
+                        [e.target.name]: e.target.value,
+                    })
+                }} ></input>
+                <input type='text' name='duration' placeholder='Duration (seconds)' onChange={(e) => {
+                    setPayload({
+                        ...payload,
+                        [e.target.name]: e.target.value,
+                    })
+                }} ></input>
                 <button onClick={() => setMutateExercise({})}>Add Exercise</button>
                 <ul>
                     <li></li>
