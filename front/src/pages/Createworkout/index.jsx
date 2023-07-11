@@ -5,9 +5,12 @@ import { workout } from '../../services'
 
 function Createworkout() {
     const [payload, setPayload] = useState();
+
+    //const workoutId = '';
     
-    const { mutate } = useMutation(() => workout.create({ payload }))
-    const { mutate: setMutate } = useMutation(() => workout.addset({ payload }))
+    const { mutate,data } = useMutation(() => workout.create({ payload }))
+
+    const { mutate: setMutate } = useMutation((payload) => workout.addset({ payload }))
     
     return (
         <Styled.Body>
@@ -20,14 +23,28 @@ function Createworkout() {
                     })
                 }}></input>
                 <button onClick={() => { mutate(payload) }}>Continue</button>
-                <input type="text" name='name' placeholder='Insert set name' onChange={(e) => {
+                <input type="text" name='setName' placeholder='Insert set name' onChange={(e) => {
                     setPayload({
                         ...payload,
                         [e.target.name]: e.target.value,
                     })
                 }}></input>
-                <button onClick={() => { setMutate(payload) }}>Continue</button>
-                <input type='text' placeholder='Exercise name' onChange={(e) => {
+                <label htmlFor='reps'>Insert repetitions</label>
+                <input id='reps' name='rounds' onChange={(e) => {
+                    setPayload({
+                        ...payload, 
+                        [e.target.name]: e.target.value
+                    })
+                }}></input>
+                <label htmlFor='rest'>Insert rest time (seconds)</label>
+                <input id='rest' name='rest_time' placeholder='ex: 30' onChange={(e) => {
+                    setPayload({
+                        ...payload,
+                        [e.target.name]: e.target.value
+                    })
+                }}></input>
+                <button onClick={() => { setMutate({...payload, workoutId: data.data.id}) }}>Continue</button>
+                <input type='text' name='' placeholder='Exercise name' onChange={(e) => {
                     setPayload({
                         ...payload,
                         [e.target.name]: e.target.value,
@@ -38,10 +55,6 @@ function Createworkout() {
                 <ul>
                     <li></li>
                 </ul>
-                <label htmlFor='reps'>Insert repetitions</label>
-                <input id='reps'></input>
-                <label htmlFor='rest'>Insert rest time (seconds)</label>
-                <input id='rest' placeholder='ex: 30'></input>
             </Styled.Form>
             <button>Add set</button>
             <input type='submit'></input>

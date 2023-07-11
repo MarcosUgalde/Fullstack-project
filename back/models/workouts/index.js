@@ -7,10 +7,11 @@ const {
 
 const createWorkout = (db) => async (workoutName, user_id) => {
   try {
-    await db.query(insertWorkout(workoutName, user_id));
+    const workout = await db.query(insertWorkout(workoutName, user_id));
 
     return {
       ok: true,
+      data: workout,
     };
   } catch (error) {
     console.info("Create workout error: ", error.message);
@@ -21,9 +22,9 @@ const createWorkout = (db) => async (workoutName, user_id) => {
   }
 };
 
-const createSet = (db) => async (setName, rounds, rest_time, workout_id) => {
+const createSet = (db) => async (setName, rounds, rest_time, workoutId) => {
   try {
-    await db.query(insertSet(setName, rounds, rest_time, workout_id));
+    await db.query(insertSet(setName, rounds, rest_time, workoutId));
     /*     const response = await db.transaction(async (tx) => {
       await tx.query(insertSet(name, rounds, rest_time, workout_id));
       await tx.query(insertWorkout(name, user_id));

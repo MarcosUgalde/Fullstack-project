@@ -9,11 +9,11 @@ const insertWorkout = (workoutName, user_id) => sql.unsafe`
     RETURNING id
 `;
 
-const insertSet = (setName, rounds, rest_time, workout_id) => sql.unsafe`
+const insertSet = (setName, rounds, rest_time, workoutId) => sql.unsafe`
         INSERT INTO sets (
             set_name, rounds, rest_time, workout_id
         ) VALUES (
-            ${setName}, ${rounds}, ${rest_time}, ${workout_id}
+            ${setName}, ${rounds}, ${rest_time}, ${workoutId}
         )
         RETURNING id
 `;
