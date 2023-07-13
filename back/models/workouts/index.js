@@ -24,7 +24,9 @@ const createWorkout = (db) => async (workoutName, user_id) => {
 
 const createSet = (db) => async (setName, rounds, rest_time, workoutId) => {
   try {
-    await db.query(insertSet(setName, rounds, rest_time, workoutId));
+    const set = await db.query(
+      insertSet(setName, rounds, rest_time, workoutId)
+    );
     /*     const response = await db.transaction(async (tx) => {
       await tx.query(insertSet(name, rounds, rest_time, workout_id));
       await tx.query(insertWorkout(name, user_id));
@@ -36,6 +38,7 @@ const createSet = (db) => async (setName, rounds, rest_time, workoutId) => {
     });*/
     return {
       ok: true,
+      data: set,
     };
   } catch (error) {
     console.info("Create set error: ", error.message);

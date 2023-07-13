@@ -63,7 +63,7 @@ function Createworkout() {
                         [e.target.name]: e.target.value,
                     })
                 }} ></input>
-                <button onClick={() => setMutateExercise({})}>Add Exercise</button>
+                <button onClick={() => setMutateExercise({ ...payload, setId: setData.data.id })}>Add Exercise</button>
                 <ul>
                     <li></li>
                 </ul>

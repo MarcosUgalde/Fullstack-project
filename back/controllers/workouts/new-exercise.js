@@ -2,13 +2,13 @@ const { createExercise } = require("../../models/workouts");
 const errors = require("../../misc/errors");
 
 module.exports = (db) => async (req, res, next) => {
-  const { exerciseName, description, duration, set_id } = req.body;
+  const { exerciseName, description, duration, setId } = req.body;
 
   const newExercise = await createExercise(await db)(
     exerciseName,
     description,
     duration,
-    set_id
+    setId
   );
 
   if (!newExercise) return next(errors[500]);
