@@ -35,7 +35,7 @@ const insertExercise = (
 // Para la información de un workout almacenado tampoco necesito toda esta información
 
 const selectWorkoutsByUser = (email) => sql.unsafe`
-        SELECT users.username, workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name, exercises.description, exercises.duration FROM users
+        SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM users
         INNER JOIN workouts 
         ON users.id = workouts.creator_id
         INNER JOIN sets

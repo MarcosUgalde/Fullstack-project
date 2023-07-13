@@ -22,4 +22,11 @@ const createExercise =
       .then((res) => res.data);
   };
 
-export { createWorkout, createSet, createExercise };
+const selectWorkouts = (client) => {
+  return client
+    .get("http://localhost:4000/workouts/all")
+    .then((res) => res.data)
+    .catch((err) => err);
+};
+
+export { createWorkout, createSet, createExercise, selectWorkouts };
