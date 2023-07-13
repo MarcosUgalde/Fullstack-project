@@ -52,11 +52,12 @@ const createSet = (db) => async (setName, rounds, rest_time, workoutId) => {
 const createExercise =
   (db) => async (exerciseName, description, duration, set_id) => {
     try {
-      await db.query(
+      const exercise = await db.query(
         insertExercise(exerciseName, description, duration, set_id)
       );
       return {
         ok: true,
+        data: exercise,
       };
     } catch (error) {
       console.info("Create exercise error: ", error.message);

@@ -15,6 +15,6 @@ module.exports = (db) => async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: newExercise.data,
+    data: newExercise.data.rows[0],
   });
 };

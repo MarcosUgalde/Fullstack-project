@@ -9,9 +9,9 @@ function Createworkout() {
     const { mutate,data } = useMutation(() => workout.create({ payload }))
 
     const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
-    console.log(setData)
 
-    const { mutate: setMutateExercise } = useMutation((payload) => workout.addexercise({ payload }))
+    const { mutate: setMutateExercise,data: setExerciseData } = useMutation((payload) => workout.addexercise({ payload }))
+    console.log(setExerciseData)
     
     return (
         <Styled.Body>
