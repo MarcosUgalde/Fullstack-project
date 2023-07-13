@@ -1,29 +1,35 @@
 import Styled from './styles'
-import { useState } from 'react'
+import Set from '../../components/SetsCreation';
+import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { workout } from '../../services'
 
 function Createworkout() {
     const [payload, setPayload] = useState();
-    
     const { mutate,data } = useMutation(() => workout.create({ payload }))
-
+    console.log(data)
     const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
 
     const { mutate: setMutateExercise,data: setExerciseData } = useMutation((payload) => workout.addexercise({ payload }))
     console.log(setExerciseData)
+    const [sets, setSets] = useState([<Set key={0} />]);
+
+  const handleNewSet = () => {
+    const newSet = <Set key={sets.length} />;
+    setSets([...sets, newSet]);
+  }
     
     return (
         <Styled.Body>
             <h1>Create a new workout!</h1>
-            <Styled.Form>
-                <input type='text' id='workout' name='name' placeholder='Insert Workout Name' onChange={(e) => {
+            <input type='text' id='workout' name='name' placeholder='Insert Workout Name' onChange={(e) => {
                     setPayload({
                         ...payload,
                         [e.target.name]: e.target.value,
                     })
                 }}></input>
                 <button onClick={() => { mutate(payload) }}>Continue</button>
+                <Styled.Form>
                 <input type="text" name='setName' placeholder='Insert set name' onChange={(e) => {
                     setPayload({
                         ...payload,
@@ -68,6 +74,8 @@ function Createworkout() {
                     <li></li>
                 </ul>
             </Styled.Form>
+            
+            <button onClick={handleNewSet}>New Set</button>
             <input type='submit'></input>
         </Styled.Body>
     )
