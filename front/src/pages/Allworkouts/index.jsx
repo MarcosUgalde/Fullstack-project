@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { workout } from '../../services'
 
 function Allworkouts() {
-    const { data: workouts = [], isLoading } = useQuery("all", () => workout.getWorkouts())
+    const { data: workouts = [], isLoading } = useQuery(["all"], () => workout.getWorkouts())
     console.log(workouts)
 
     if(isLoading) return <div><p>Loading</p></div>

@@ -5,19 +5,24 @@ import { useMutation } from 'react-query';
 import { workout } from '../../services'
 
 function Createworkout() {
+    const [sets, setSets] = useState([]);
+    const handleNewSet = (id) => {
+        console.log(id)
+      const newSet = <Set key={sets.length} workoutId={id} />;
+      setSets([...sets, newSet]);
+    }
+    console.log(sets)
     const [payload, setPayload] = useState();
-    const { mutate,data } = useMutation(() => workout.create({ payload }))
-    console.log(data)
-    const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
+    const { mutate,data } = useMutation(() => workout.create({ payload }), {onSuccess: (data) => {
+        console.log(data)
+        handleNewSet(data.data.id)
+    }})
+    //console.log(data)
+    //const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
 
-    const { mutate: setMutateExercise,data: setExerciseData } = useMutation((payload) => workout.addexercise({ payload }))
-    console.log(setExerciseData)
-    const [sets, setSets] = useState([<Set key={0} />]);
+    //const { mutate: setMutateExercise,data: setExerciseData } = useMutation((payload) => workout.addexercise({ payload }))
+   // console.log(setExerciseData)
 
-  const handleNewSet = () => {
-    const newSet = <Set key={sets.length} />;
-    setSets([...sets, newSet]);
-  }
     
     return (
         <Styled.Body>
@@ -29,7 +34,18 @@ function Createworkout() {
                     })
                 }}></input>
                 <button onClick={() => { mutate(payload) }}>Continue</button>
-                <Styled.Form>
+            {sets.map((element) => {
+                return element
+            })}
+            <button onClick={handleNewSet}>New Set</button>
+            <input type='submit'></input>
+        </Styled.Body>
+    )
+}
+
+export default Createworkout
+
+            /*    <Styled.Form>
                 <input type="text" name='setName' placeholder='Insert set name' onChange={(e) => {
                     setPayload({
                         ...payload,
@@ -74,11 +90,4 @@ function Createworkout() {
                     <li></li>
                 </ul>
             </Styled.Form>
-            
-            <button onClick={handleNewSet}>New Set</button>
-            <input type='submit'></input>
-        </Styled.Body>
-    )
-}
-
-export default Createworkout
+             */

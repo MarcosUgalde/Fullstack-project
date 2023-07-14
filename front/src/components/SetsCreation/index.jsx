@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { useMutation } from 'react-query';
 import { workout } from '../../services'
 
-function Set() {
+function Set({ workoutId }) {
     const [payload, setPayload] = useState();
     
-    const { mutate,data } = useMutation(() => workout.create({ payload }))
+    //const { mutate,data } = useMutation(() => workout.create({ payload }))
 
     const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
 
@@ -43,7 +43,7 @@ function Set() {
                         [e.target.name]: e.target.value
                     })
                 }}></input>
-                <button onClick={() => { setMutate({...payload, workoutId: data.data.id}) }}>Continue</button>
+                <button onClick={() => { setMutate({...payload, workoutId}) }}>Continue</button>
                 <input type='text' name='exerciseName' placeholder='Exercise name' onChange={(e) => {
                     setPayload({
                         ...payload,
