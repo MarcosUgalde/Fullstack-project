@@ -35,7 +35,7 @@ const insertExercise = (
 // Para la información de un workout almacenado tampoco necesito toda esta información
 
 const selectWorkoutsByUser = (email) => sql.unsafe`
-        SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM users
+        SELECT  users.id, workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM users
         INNER JOIN workouts 
         ON users.id = workouts.creator_id
         INNER JOIN sets
@@ -45,9 +45,19 @@ const selectWorkoutsByUser = (email) => sql.unsafe`
         WHERE users.email = ${email}
 `;
 
+const selectOneWorkout = (name) => sql.unsafe`
+            SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM  workouts
+            INNER JOIN sets 
+            ON workouts.id = sets.workout_id
+            INNER JOIN  exercises
+            ON sets.id = exercises.set_id
+            WHERE workouts.workout_name = ${name} 
+`;
+
 module.exports = {
   insertWorkout,
   insertSet,
   insertExercise,
   selectWorkoutsByUser,
+  selectOneWorkout,
 };

@@ -3,6 +3,7 @@ const {
   insertSet,
   insertExercise,
   selectWorkoutsByUser,
+  selectOneWorkout,
 } = require("./queries");
 
 const createWorkout = (db) => async (workoutName, user_id) => {
@@ -141,10 +142,28 @@ const getWorkoutsByUser = (db) => async (email) => {
   }
 };
 
+const getOneWorkout = (db) => async (name) => {
+  try {
+    const response = await db.query(selectOneWorkout(name));
+
+    return {
+      ok: true,
+      data: response.rows,
+    };
+  } catch (error) {
+    console.info("Get one workout error: ", error.message);
+    return {
+      ok: true,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   createWorkout,
   createSet,
   createExercise,
   createCompleteWorkout,
   getWorkoutsByUser,
+  getOneWorkout,
 };
