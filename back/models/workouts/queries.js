@@ -45,13 +45,13 @@ const selectWorkoutsByUser = (email) => sql.unsafe`
         WHERE users.email = ${email}
 `;
 
-const selectOneWorkout = (name) => sql.unsafe`
+const selectOneWorkout = (id) => sql.unsafe`
             SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM  workouts
             INNER JOIN sets 
             ON workouts.id = sets.workout_id
             INNER JOIN  exercises
             ON sets.id = exercises.set_id
-            WHERE workouts.workout_name = ${name} 
+            WHERE workouts.id = ${id} 
 `;
 
 module.exports = {

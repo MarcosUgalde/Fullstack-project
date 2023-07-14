@@ -142,9 +142,9 @@ const getWorkoutsByUser = (db) => async (email) => {
   }
 };
 
-const getOneWorkout = (db) => async (name) => {
+const getOneWorkout = (db) => async (id) => {
   try {
-    const response = await db.query(selectOneWorkout(name));
+    const response = await db.query(selectOneWorkout(id));
 
     return {
       ok: true,

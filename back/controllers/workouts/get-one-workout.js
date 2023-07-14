@@ -2,8 +2,8 @@ const { getOneWorkout } = require("../../models/workouts");
 const errors = require("../../misc/errors");
 
 module.exports = (db) => async (req, res, next) => {
-  const { name } = req.params;
-  const workout = await getOneWorkout(await db)(name);
+  const { id } = req.params;
+  const workout = await getOneWorkout(await db)(id);
 
   if (!workout) return next(errors[500]);
 

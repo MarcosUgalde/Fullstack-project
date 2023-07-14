@@ -13,6 +13,7 @@ module.exports = (db) => {
     workoutControllers.addCompleteWorkout(db)
   );
   router.get("/all", authorizer, workoutControllers.getWorkouts(db));
+  router.get("/:id", authorizer, workoutControllers.getOneWorkout(db));
 
   return router;
 };
