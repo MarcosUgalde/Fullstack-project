@@ -4,4 +4,5 @@ module.exports = {
   addExercise: require("./new-exercise"),
   addCompleteWorkout: require("./complete-workout"),
   getWorkouts: require("./get-workouts"),
+  getOneWorkout: require("./get-one-workout"),
 };
