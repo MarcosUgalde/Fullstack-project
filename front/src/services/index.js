@@ -6,6 +6,7 @@ import {
   createWorkout,
   createExercise,
   selectWorkouts,
+  selectOneWorkout,
 } from "./workouts";
 
 const client = axios.create({
@@ -27,6 +28,7 @@ const workout = {
   addset: createSet(client),
   addexercise: createExercise(client),
   getWorkouts: selectWorkouts(client),
+  getOneWorkout: selectOneWorkout(client),
 };
 
 export { auth, user, workout };

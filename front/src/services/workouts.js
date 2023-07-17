@@ -29,4 +29,17 @@ const selectWorkouts = (client) => {
     .catch((err) => err);
 };
 
-export { createWorkout, createSet, createExercise, selectWorkouts };
+const selectOneWorkout = (client) => {
+  return client
+    .get("http://localhost:4000/workouts/:id")
+    .then((res) => res.data)
+    .catch((err) => err);
+};
+
+export {
+  createWorkout,
+  createSet,
+  createExercise,
+  selectWorkouts,
+  selectOneWorkout,
+};
