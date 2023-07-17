@@ -46,7 +46,7 @@ const selectWorkoutsByUser = (email) => sql.unsafe`
 `;
 
 const selectOneWorkout = (id) => sql.unsafe`
-            SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name FROM  workouts
+            SELECT workouts.workout_name, sets.set_name, sets.rounds, sets.rest_time, exercises.exercise_name, exercises.description, exercises.duration FROM  workouts
             INNER JOIN sets 
             ON workouts.id = sets.workout_id
             INNER JOIN  exercises
