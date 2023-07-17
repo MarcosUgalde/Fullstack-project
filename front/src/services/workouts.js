@@ -22,14 +22,14 @@ const createExercise =
       .then((res) => res.data);
   };
 
-const selectWorkouts = (client) => {
+const selectWorkouts = (client) => () => {
   return client
     .get("http://localhost:4000/workouts/all")
     .then((res) => res.data)
     .catch((err) => err);
 };
 
-const selectOneWorkout = (client) => {
+const selectOneWorkout = (client) => () => {
   return client
     .get("http://localhost:4000/workouts/:id")
     .then((res) => res.data)

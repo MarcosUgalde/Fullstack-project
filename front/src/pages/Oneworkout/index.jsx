@@ -19,7 +19,6 @@ function Oneworkout() {
                 </ul>
             </>
             <>
-                <h1>Workout name</h1>
                 <h3>Set name</h3>
                 <Styled.Block>
                     <p>Exercise name</p>
