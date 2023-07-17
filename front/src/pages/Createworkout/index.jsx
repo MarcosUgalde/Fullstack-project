@@ -11,9 +11,9 @@ function Createworkout() {
       const newSet = <Set key={sets.length} workoutId={id} />;
       setSets([...sets, newSet]);
     }
-    console.log(sets)
+
     const [payload, setPayload] = useState();
-    const { mutate,data } = useMutation(() => workout.create({ payload }), {onSuccess: (data) => {
+    const { mutate } = useMutation(() => workout.create({ payload }), {onSuccess: (data) => {
         console.log(data)
         handleNewSet(data.data.id)
     }})
@@ -28,15 +28,17 @@ function Createworkout() {
         <Styled.Body>
             <h1>Create a new workout!</h1>
             <input type='text' id='workout' name='name' placeholder='Insert Workout Name' onChange={(e) => {
-                    setPayload({
-                        ...payload,
-                        [e.target.name]: e.target.value,
-                    })
-                }}></input>
-                <button onClick={() => { mutate(payload) }}>Continue</button>
+                setPayload({
+                    ...payload,
+                    [e.target.name]: e.target.value,
+                })
+            }}></input>
+            <button onClick={() => { mutate(payload) }}>Continue</button>
+
             {sets.map((element) => {
                 return element
             })}
+
             <button onClick={handleNewSet}>New Set</button>
             <input type='submit'></input>
         </Styled.Body>
