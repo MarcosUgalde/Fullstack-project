@@ -8,6 +8,7 @@ import Mainmenu from './pages/Mainmenu'
 import Createworkout from './pages/Createworkout'
 import Guard from './components/Guard'
 import Allworkouts from './pages/Allworkouts'
+import Oneworkout from './pages/Oneworkout'
 
 const Main = () => {
   return (
@@ -20,6 +21,7 @@ const Main = () => {
         </Route>
         <Route path='/new-workout' component={Createworkout} />
         <Route path='/workouts' component={Allworkouts} />
+        <Route path='/workout' component={Oneworkout} />
         <Redirect to='/login' />
       </Switch>
     </Provider>
