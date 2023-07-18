@@ -28,9 +28,9 @@ function Oneworkout() {
             <>
                 <h3>{data.data[0].set_name}</h3>
                 <Styled.Block>
-                    <p>Exercise name</p>
-                    <p>Time remaining of exercise</p>
-                    <p>Description</p>
+                    <p>{exercises[0].exercise_name}</p>
+                    <p>{exercises[0].duration}</p>
+                    <p>{exercises[0].description}</p>
                 </Styled.Block>
                 <button>Pause</button>
                 <button>Stop Workout</button>
