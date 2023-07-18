@@ -8,33 +8,32 @@ function Oneworkout() {
     const { data, isLoading } = useQuery(url, () => workout.getOneWorkout(url))
     console.log(data)
     if(isLoading) return <div><p>Loading</p></div>
+    const exercises = data.data.map((item) => item)
+    console.log(exercises)
 
     return (
         <Styled.Body>
             <>
                 <h1>{data.data[0].workout_name}</h1>
-                <h3>Set 1</h3>
+                <h3>{data.data[0].set_name}</h3>
                 <ul>
-                    <li>Exercise 1</li>
-                    <li>Exercise 2</li>
-                    <li>Exercise 3</li>
+                    {exercises.map((exercise) => {
+                        return (
+                            <li>{exercise.exercise_name}</li>
+                        )
+                    })}
                 </ul>
-                <h3>Set 2</h3>
-                <ul>
-                    <li>Exercise 1</li>
-                    <li>Exercise 2</li>
-                    <li>Exercise 3</li>
-                </ul>
+                <button>Start</button>
             </>
             <>
-                <h3>Set name</h3>
+                <h3>{data.data[0].set_name}</h3>
                 <Styled.Block>
                     <p>Exercise name</p>
                     <p>Time remaining of exercise</p>
                     <p>Description</p>
                 </Styled.Block>
                 <button>Pause</button>
-                <button>Stop workout</button>
+                <button>Stop Workout</button>
             </>
         </Styled.Body>
     )
