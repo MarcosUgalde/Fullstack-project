@@ -1,3 +1,4 @@
+import Styled from './styles'
 import { useQuery } from "react-query";
 import { Link } from "wouter"
 import { workout } from '../../services'
@@ -12,14 +13,14 @@ function Allworkouts() {
     }
     
     return (
-        <>
+        <Styled.Body>
             <h1>List of workouts created by the user</h1>
-            <div>{workouts.data.map((workout) => (
+            <Styled.Workouts>{workouts.data.map((workout) => (
                     <Link href={`/workout/${workout.id}`}>{workout.workout_name}</Link>
                 )
                 )}
-            </div>
-        </>
+            </Styled.Workouts>
+        </Styled.Body>
     )
 }
 
