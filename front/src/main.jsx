@@ -21,7 +21,7 @@ const Main = () => {
         </Route>
         <Route path='/new-workout' component={Createworkout} />
         <Route path='/workouts' component={Allworkouts} />
-        <Route path='/workout' component={Oneworkout} />
+        <Route path='/workout/:id' component={Oneworkout} />
         <Redirect to='/login' />
       </Switch>
     </Provider>
