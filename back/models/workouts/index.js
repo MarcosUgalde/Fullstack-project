@@ -136,7 +136,7 @@ const getWorkoutsByUser = (db) => async (email) => {
   } catch (error) {
     console.info("Get workouts by user error: ", error.message);
     return {
-      ok: true,
+      ok: false,
       message: error.message,
     };
   }
@@ -153,7 +153,7 @@ const getOneWorkout = (db) => async (id) => {
   } catch (error) {
     console.info("Get one workout error: ", error.message);
     return {
-      ok: true,
+      ok: false,
       message: error.message,
     };
   }

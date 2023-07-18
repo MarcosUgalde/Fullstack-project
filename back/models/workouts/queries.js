@@ -31,9 +31,6 @@ const insertExercise = (
         )
 `;
 
-// La siguiente query la tendré que modificar. Para la lista de workouts de un usuario no necesito toda esta información
-// Para la información de un workout almacenado tampoco necesito toda esta información
-
 const selectWorkoutsByUser = (email) => sql.unsafe`
         SELECT  users.id, workouts.workout_name, workouts.id FROM users
         INNER JOIN workouts 
