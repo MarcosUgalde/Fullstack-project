@@ -29,9 +29,9 @@ const selectWorkouts = (client) => () => {
     .catch((err) => err);
 };
 
-const selectOneWorkout = (client) => () => {
+const selectOneWorkout = (client) => (url) => {
   return client
-    .get("http://localhost:4000/workouts/:id")
+    .get(`http://localhost:4000/workouts/${url}`)
     .then((res) => res.data)
     .catch((err) => err);
 };

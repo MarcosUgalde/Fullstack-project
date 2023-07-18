@@ -1,10 +1,18 @@
 import Styled from './styles'
+import { workout } from '../../services'
+import { useQuery } from "react-query";
+import { useUrl } from '../../hooks'
 
 function Oneworkout() {
+    const url = useUrl()
+    const { data, isLoading } = useQuery(url, () => workout.getOneWorkout(url))
+    console.log(data)
+    if(isLoading) return <div><p>Loading</p></div>
+
     return (
         <Styled.Body>
             <>
-                <h1>Workout name</h1>
+                <h1>{data.data[0].workout_name}</h1>
                 <h3>Set 1</h3>
                 <ul>
                     <li>Exercise 1</li>
