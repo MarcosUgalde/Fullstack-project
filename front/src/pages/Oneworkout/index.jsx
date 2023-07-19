@@ -13,8 +13,8 @@ function Oneworkout() {
     console.log(exercises)
     const index = 0;
     
-    //const [currentIndex, setCurrentIndex] = useState(0);
-    //const [remainingDuration, setRemainingDuration] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [remainingDuration, setRemainingDuration] = useState(0);
     
     // const [exercises, setExercises] = useState([])
     //const [started, setStarted] = useState(false)
@@ -29,13 +29,13 @@ function Oneworkout() {
         }
     }, [data, isLoading, started])
     */
-/** 
+ 
     const startWorkout = () => {
        setCurrentIndex(0);
        setRemainingDuration(exercises[0].duration)
    }
-   */
-   /* 
+   
+    
    useEffect(() => {
        if(remainingDuration === 0) {
            if(currentIndex + 1 < exercises.length) {
@@ -50,7 +50,7 @@ function Oneworkout() {
        }
    }, [currentIndex, remainingDuration, exercises])
     
-    */
+    
 
 
     return (
@@ -65,14 +65,14 @@ function Oneworkout() {
                         )
                     })}
                 </ul>
-                <button>Start</button>
+                <button onClick={startWorkout}>Start</button>
             </>
             <>
                 <h3>{data.data[0].set_name}</h3>
                 <Styled.Block>
-                    <p>{exercises[index].exercise_name}</p>
-                    <p>{exercises[index].duration}</p>
-                    <p>{exercises[index].description}</p>
+                    <p>{exercises[currentIndex].exercise_name}</p>
+                    <p>{remainingDuration}</p>
+                    <p>{exercises[currentIndex].description}</p>
                 </Styled.Block>
                 <button>Pause</button>
                 <button>Stop Workout</button>
