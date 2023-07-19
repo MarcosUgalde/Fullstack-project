@@ -47,10 +47,16 @@ const selectOneWorkout = (id) => sql.unsafe`
             WHERE workouts.id = ${id} 
 `;
 
+const deleteOneWorkout = (name) => sql.unsafe`
+            DELETE from workouts
+            WHERE workout_name = ${name}
+`;
+
 module.exports = {
   insertWorkout,
   insertSet,
   insertExercise,
   selectWorkoutsByUser,
   selectOneWorkout,
+  deleteOneWorkout,
 };

@@ -4,6 +4,7 @@ const {
   insertExercise,
   selectWorkoutsByUser,
   selectOneWorkout,
+  deleteOneWorkout,
 } = require("./queries");
 
 const createWorkout = (db) => async (workoutName, user_id) => {
@@ -159,6 +160,22 @@ const getOneWorkout = (db) => async (id) => {
   }
 };
 
+const deleteWorkout = (db) => async (name) => {
+  try {
+    await db.query(deleteOneWorkout(name));
+
+    return {
+      ok: true,
+    };
+  } catch (error) {
+    console.info("Delete workout error: ", error.message);
+    return {
+      ok: false,
+      message: error.message,
+    };
+  }
+};
+
 module.exports = {
   createWorkout,
   createSet,
@@ -166,4 +183,5 @@ module.exports = {
   createCompleteWorkout,
   getWorkoutsByUser,
   getOneWorkout,
+  deleteWorkout,
 };

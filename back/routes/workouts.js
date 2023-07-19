@@ -15,5 +15,6 @@ module.exports = (db) => {
   router.get("/all", authorizer, workoutControllers.getWorkouts(db));
   router.get("/:id", authorizer, workoutControllers.getOneWorkout(db));
 
+  router.delete("/:name", authorizer, workoutControllers.deleteWorkout(db));
   return router;
 };

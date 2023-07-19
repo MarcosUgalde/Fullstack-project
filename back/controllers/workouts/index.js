@@ -5,4 +5,5 @@ module.exports = {
   addCompleteWorkout: require("./complete-workout"),
   getWorkouts: require("./get-workouts"),
   getOneWorkout: require("./get-one-workout"),
+  deleteWorkout: require("./delete-workout"),
 };
