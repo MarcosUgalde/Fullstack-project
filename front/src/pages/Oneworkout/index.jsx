@@ -2,6 +2,7 @@ import Styled from './styles'
 import { workout } from '../../services'
 import { useQuery } from "react-query";
 import { useUrl } from '../../hooks'
+//import { useEffect, useState } from 'react';
 
 function Oneworkout() {
     const url = useUrl()
@@ -19,7 +20,7 @@ function Oneworkout() {
                 <ul>
                     {exercises.map((exercise) => {
                         return (
-                            <li>{exercise.exercise_name}</li>
+                            <li>{exercise.exercise_name} - {exercise.duration} seconds</li>
                         )
                     })}
                 </ul>
