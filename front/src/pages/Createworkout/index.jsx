@@ -40,7 +40,7 @@ function Createworkout() {
             })}
 
             <button onClick={handleNewSet}>New Set</button>
-            <input type='submit'></input>
+            <button>Save</button>
         </Styled.Body>
     )
 }
