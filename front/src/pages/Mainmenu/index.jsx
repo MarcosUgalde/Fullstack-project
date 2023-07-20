@@ -1,15 +1,20 @@
-import Styled from './styles'
+import Styled from './styles';
+import { Link } from 'wouter';
 
 function Mainmenu() {
     return (
         <Styled.Body>
             <h1>Main menu</h1>
-            <Styled.Button>
-                <button>Create new workout</button>
-            </Styled.Button>
-            <Styled.Button>
-                <button>Select workout</button>
-            </Styled.Button>
+            <Link to='/new-workout'>
+                <Styled.Button>
+                    <button>Create new workout</button>
+                </Styled.Button>
+            </Link>
+            <Link to='workouts'>
+                <Styled.Button>
+                    <button>Select workout</button>
+                </Styled.Button>
+            </Link>
         </Styled.Body>
         
     )
