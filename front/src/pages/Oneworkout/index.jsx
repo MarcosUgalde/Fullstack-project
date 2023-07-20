@@ -40,19 +40,19 @@ function Oneworkout() {
     
     if(!isLoading)  return (
         <Styled.Body>
-            <>
+            <Styled.View>
                 <h1>{data?.data[0].workout_name}</h1>
                 <h3>{data?.data[0].set_name}</h3>
                 <ul>
                     {exercises.map((exercise) => {
                         return (
-                            <li key={exercise.id}>{exercise.exercise_name} - {exercise.duration} seconds</li>
+                            <li key={exercise.id}>{exercise.exercise_name} ({exercise.duration} seconds)</li>
                         )
                     })}
                 </ul>
                 <button onClick={startWorkout}>Start</button>
-            </>
-            <>
+            </Styled.View>
+            <Styled.Training>
                 <h3>{data?.data[0].set_name}</h3>
                 <Styled.Block>
                     <p>{exercises[currentIndex].exercise_name}</p>
@@ -62,7 +62,7 @@ function Oneworkout() {
                 </Styled.Block>
                 <button>Pause</button>
                 <button>Stop Workout</button>
-            </>
+            </Styled.Training>
         </Styled.Body>
     )
 }
