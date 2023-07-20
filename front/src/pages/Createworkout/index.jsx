@@ -2,7 +2,8 @@ import Styled from './styles'
 import Set from '../../components/SetsCreation';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
-import { workout } from '../../services'
+import { workout } from '../../services';
+import { Link } from 'wouter';
 
 function Createworkout() {
     const [sets, setSets] = useState([]);
@@ -40,7 +41,9 @@ function Createworkout() {
             })}
 
             <button onClick={handleNewSet}>New Set</button>
-            <button>Save</button>
+            <Link to='/workouts'>
+                <button>Save</button>
+            </Link>
         </Styled.Body>
     )
 }

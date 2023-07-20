@@ -5,6 +5,8 @@ const Body = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    background-color: black;
 `
 const Form = styled.section`
     display: flex;
