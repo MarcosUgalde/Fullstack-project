@@ -1,21 +1,22 @@
-import { Link, useRoute } from 'wouter'
+import { Link, useRoute } from 'wouter';
+import Styled from './styles';
 
 const CustomLink = ({ href, children }) => {
     const [isActive] = useRoute(href)
   
     return (
       <Link {...{ href }}>
-        <a {...{ href }}>{children}</a>
+        <Styled.Anchor {...{ href, isActive }}>{children}</Styled.Anchor>
       </Link>
     )
   }
 
 const NavBar = () => {
     return (
-        <nav>
+        <Styled.Nav>
             <CustomLink href='/'>Menu</CustomLink>
             <CustomLink href='/workouts'>Workouts</CustomLink>
-        </nav>
+        </Styled.Nav>
     )
 }
 
