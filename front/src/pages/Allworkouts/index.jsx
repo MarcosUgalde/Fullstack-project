@@ -14,7 +14,7 @@ function Allworkouts() {
     
     return (
         <Styled.Body>
-            <h1>List of workouts created by the user</h1>
+            <h1>Select one workout</h1>
             <Styled.Workouts>{workouts.data.map((workout) => (
                     <Link href={`/workout/${workout.id}`} key={workout.id}>
                         <Styled.Anchor>
