@@ -17,7 +17,13 @@ const Workouts = styled.section`
     color: red;
 `
 
+const Anchor = styled.a`
+    color: white;
+    text-decoration: none;
+`
+
 export default {
     Body,
     Workouts,
+    Anchor,
 }
