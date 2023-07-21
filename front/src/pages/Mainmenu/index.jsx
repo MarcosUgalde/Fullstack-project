@@ -5,16 +5,18 @@ function Mainmenu() {
     return (
         <Styled.Body>
             <h1>Main menu</h1>
-            <Link to='/new-workout'>
-                <Styled.Button>
-                    <button>Create new workout</button>
-                </Styled.Button>
-            </Link>
-            <Link to='workouts'>
-                <Styled.Button>
-                    <button>Select workout</button>
-                </Styled.Button>
-            </Link>
+            <Styled.Options>
+                <Link to='/new-workout'>
+                    <Styled.Button>
+                        Create new workout
+                    </Styled.Button>
+                </Link>
+                <Link to='workouts'>
+                    <Styled.Button>
+                        Select workout
+                    </Styled.Button>
+                </Link>
+            </Styled.Options>
         </Styled.Body>
         
     )

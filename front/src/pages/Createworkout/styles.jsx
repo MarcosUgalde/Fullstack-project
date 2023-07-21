@@ -7,6 +7,7 @@ const Body = styled.section`
     align-items: center;
     color: white;
     background-color: black;
+    padding: 2em;
 `
 const Form = styled.section`
     display: flex;
