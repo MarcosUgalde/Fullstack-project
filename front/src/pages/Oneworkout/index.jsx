@@ -50,7 +50,10 @@ function Oneworkout() {
                         )
                     })}
                 </ul>
-                <button onClick={startWorkout}>Start</button>
+                <div>
+                    <button>Delete Workout</button>
+                    <button onClick={startWorkout}>Start</button>
+                </div>
             </Styled.View>
             <Styled.Training>
                 <h3>{data?.data[0].set_name}</h3>
