@@ -3,30 +3,18 @@ import ReactDOM from 'react-dom/client'
 import Provider from './context/Provider'
 import Register from './pages/Register'
 import Login from './pages/Login'
-import { Switch, Route, Redirect, Link, useRoute } from 'wouter'
+import { Switch, Route, Redirect } from 'wouter'
 import Mainmenu from './pages/Mainmenu'
 import Createworkout from './pages/Createworkout'
 import Guard from './components/Guard'
 import Allworkouts from './pages/Allworkouts'
 import Oneworkout from './pages/Oneworkout'
-
-const CustomLink = ({ href, children }) => {
-  const [isActive] = useRoute(href)
-
-  return (
-    <Link {...{ href }}>
-      <a {...{ href }}>{children}</a>
-    </Link>
-  )
-}
+import NavBar from './components/NavBar'
 
 const Main = () => {
   return (
     <Provider>
-      <nav>
-        <CustomLink href='/'>Menu</CustomLink>
-        <CustomLink href='/workouts'>Workouts</CustomLink>
-      </nav>
+      <NavBar />
       
       <Switch>
         <Route path='/signup' component={Register} />
