@@ -1,12 +1,14 @@
 import Styled from './styles'
 import { workout } from '../../services'
 import { useQuery } from "react-query";
-import { useUrl } from '../../hooks'
+import { useUrl, useDelete } from '../../hooks'
 import { useEffect, useState } from 'react';
 
 function Oneworkout() {
     const url = useUrl()
     const { data, isLoading } = useQuery(url, () => workout.getOneWorkout(url))
+
+    const { deleteWorkout } = useDelete()
 
     const exercises = data?.data
 
@@ -16,6 +18,11 @@ function Oneworkout() {
     const startWorkout = () => {
        setCurrentIndex(0);
        setRemainingDuration(exercises[0].duration)
+   }
+
+   const handleDelete = () => {
+    deleteWorkout(data?.data[0].workout_name)
+    console.log(data?.data[0].workout_name)
    }
    
    
@@ -51,7 +58,7 @@ function Oneworkout() {
                     })}
                 </ul>
                 <div>
-                    <button>Delete Workout</button>
+                    <button onClick={handleDelete}>Delete Workout</button>
                     <button onClick={startWorkout}>Start</button>
                 </div>
             </Styled.View>
