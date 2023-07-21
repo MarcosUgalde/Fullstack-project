@@ -1,6 +1,7 @@
 import { Link, useRoute } from 'wouter';
 import Styled from './styles';
 import { useUser } from '../../hooks';
+import { useLogout } from '../../hooks';
 
 const CustomLink = ({ href, children }) => {
     const [isActive] = useRoute(href)
@@ -13,7 +14,8 @@ const CustomLink = ({ href, children }) => {
   }
 
 const NavBar = () => {
-    const { data } = useUser()
+    const { data } = useUser();
+    useLogout();
     
     return (
         <Styled.Nav>
