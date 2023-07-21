@@ -19,7 +19,7 @@ const NavBar = () => {
         <Styled.Nav>
             <CustomLink href='/'>Menu</CustomLink>
             <CustomLink href='/workouts'>Workouts</CustomLink>
-            <Styled.User>{data.username}</Styled.User>  
+            <Styled.User>{data?.username}</Styled.User>  
         </Styled.Nav>
     )
 }
