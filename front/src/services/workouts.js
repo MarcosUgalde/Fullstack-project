@@ -36,10 +36,18 @@ const selectOneWorkout = (client) => (url) => {
     .catch((err) => err);
 };
 
+const deleteWorkout = (client) => (name) => {
+  return client
+    .delete(`http://localhost:4000/workouts/${name}`)
+    .then((res) => res.data)
+    .catch((err) => err);
+};
+
 export {
   createWorkout,
   createSet,
   createExercise,
   selectWorkouts,
   selectOneWorkout,
+  deleteWorkout,
 };
