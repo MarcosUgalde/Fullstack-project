@@ -20,6 +20,7 @@ const Workouts = styled.section`
 const Anchor = styled.a`
     color: white;
     text-decoration: none;
+    margin: 1px;
 `
 
 export default {

@@ -18,9 +18,10 @@ function Allworkouts() {
             <Styled.Workouts>{workouts.data.map((workout) => (
                     <Link href={`/workout/${workout.id}`} key={workout.id}>
                         <Styled.Anchor>
-                            {workout.workout_name}
+                            {workout.workout_name} - <button>Delete</button>
                         </Styled.Anchor>
                     </Link>
+                    
                 )
                 )}
             </Styled.Workouts>
