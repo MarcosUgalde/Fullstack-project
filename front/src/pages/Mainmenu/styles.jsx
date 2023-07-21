@@ -12,8 +12,8 @@ const Body = styled.section`
 
 const Options = styled.section`
     display: flex;
-    justify-content: center;
-    align-items: space-around;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em;
 `
 
@@ -27,6 +27,7 @@ const Button = styled.section`
     align-items: center;
     padding: 1em;
     border-radius: 10px;
+    margin: 1em;
 
     &:hover {
         font-size: 1.5em;

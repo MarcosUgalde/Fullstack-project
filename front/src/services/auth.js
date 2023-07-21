@@ -17,3 +17,13 @@ export const signin = (client) => async (params) => {
     return { success: false };
   }
 };
+
+export const logout = (client) => async () => {
+  try {
+    const { data } = await client.post("/auth/signout");
+    return data;
+  } catch (error) {
+    console.info("signout error: ", error.message);
+    return { success: false };
+  }
+};
