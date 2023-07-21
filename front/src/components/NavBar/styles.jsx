@@ -14,7 +14,12 @@ const Anchor = styled.a`
     `}
 `
 
+const User = styled.section`
+    color: red;
+`
+
 export default {
     Nav,
     Anchor,
+    User,
 }
