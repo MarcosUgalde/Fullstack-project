@@ -21,6 +21,7 @@ const Anchor = styled.a`
     color: white;
     text-decoration: none;
     margin: 1px;
+    font-family: 'PT Sans', sans-serif;
     &:hover {
         font-size: 1.1em;
         color: yellow;
