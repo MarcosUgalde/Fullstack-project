@@ -3,18 +3,28 @@ import { styled } from 'styled-components'
 const Body = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: white;
     background-color: black;
     padding: 1em;
+    min-height: 100vh;
 `
 
 const Options = styled.section`
     display: flex;
+    flex-direction:
     justify-content: space-between;
     align-items: center;
     padding: 1em;
+    margin-top: 50px;
+
+    @media (max-width: 450px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+    }
 `
 
 const Button = styled.section`
@@ -28,9 +38,10 @@ const Button = styled.section`
     padding: 1em;
     border-radius: 10px;
     margin: 1em;
+    transition: font-size 0.5s ease-in-out;
 
     &:hover {
-        font-size: 1.5em;
+        font-size: 1.1em;
     }
 `
 
