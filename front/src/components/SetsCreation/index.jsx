@@ -5,14 +5,23 @@ import { workout } from '../../services'
 
 function Set({ workoutId }) {
     const [payload, setPayload] = useState();
+    //const [exercises, setExercises] = useState([]);
     
     //const { mutate,data } = useMutation(() => workout.create({ payload }))
 
     const { mutate: setMutate,data: setData } = useMutation((payload) => workout.addset({ payload }))
 
     const { mutate: setMutateExercise,data: setExerciseData } = useMutation((payload) => workout.addexercise({ payload }))
-    console.log(setExerciseData)
-
+    console.log('Set exercise data: ', setExerciseData)
+/* 
+    const handleAddExercise = () => {
+        setMutateExercise({ ...payload, setId: setData.data.id });
+        // Add the new exercise to the list of exercises in the state
+        setExercises([...exercises, payload]);
+        // Clear the input fields after adding the exercise
+        setPayload({});
+    };
+*/
      /*<input type='text' id='workout' name='name' placeholder='Insert Workout Name' onChange={(e) => {
         setPayload({
             ...payload,
@@ -63,9 +72,6 @@ function Set({ workoutId }) {
                     })
                 }} ></input>
                 <button onClick={() => setMutateExercise({ ...payload, setId: setData.data.id })}>Add Exercise</button>
-                <ul>
-                    <li></li>
-                </ul>
             </Styled.Form>
     )
 }
