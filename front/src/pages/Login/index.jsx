@@ -49,9 +49,14 @@ function Login() {
                                 <input type="password" id='password' placeholder='*******' {...register("password", {required: true, minLength: 4})} />
                                 <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
                             </Styled.Item>                     
-                        <input type='submit' />
+                            <Styled.Item>
+                                <input type='submit' />
+                            </Styled.Item>
                     </form>
                 </Styled.Questionaire>
+                <Styled.Footer>
+                    Don't have an account? <a href="/signup"> Sign up here!</a>
+                </Styled.Footer>
        </Styled.Page>
     )
 }

@@ -20,8 +20,13 @@ const Field = styled.section`
     justify-content: center;
 `
 
+const Footer = styled.section`
+    display: flex;
+`
+
 export default {
     Body,
     Form,
     Field,
+    Footer,
 }

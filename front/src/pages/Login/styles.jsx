@@ -22,8 +22,13 @@ const Item = styled.section`
     justify-content: center;
 `
 
+const Footer = styled.section`
+    display: flex;
+`
+
 export default {
     Page,
     Questionaire,
     Item,
+    Footer,
 }

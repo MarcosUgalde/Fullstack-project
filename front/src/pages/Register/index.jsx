@@ -41,9 +41,14 @@ function Register() {
                             <input type="password" id='password' placeholder='length must be at least 4' {...register("password", {required: true, minLength: 4})} />
                             <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
                         </Styled.Field>
-                        <input type='submit' />
+                        <Styled.Field>
+                            <input type='submit' />
+                        </Styled.Field>
                     </form>
                 </Styled.Form>
+                <Styled.Footer>
+                    Already have an account? <a href="/login">Login here!</a>
+                </Styled.Footer>
         </Styled.Body>
     )
 }
