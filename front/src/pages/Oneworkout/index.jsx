@@ -2,7 +2,7 @@ import Styled from './styles'
 import { workout } from '../../services'
 import { useQuery } from "react-query";
 import { useUrl, useDelete } from '../../hooks'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function Oneworkout() {
     const url = useUrl()
@@ -14,10 +14,16 @@ function Oneworkout() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [remainingDuration, setRemainingDuration] = useState(0);
+
+    const trainingRef = useRef(null)
  
     const startWorkout = () => {
        setCurrentIndex(0);
        setRemainingDuration(exercises[0].duration)
+
+       if(trainingRef.current) {
+        trainingRef.current.scrollIntoView({ behavior: 'smooth'})
+       }
    }
 
    const handleDelete = () => {
@@ -62,7 +68,7 @@ function Oneworkout() {
                     <button onClick={startWorkout}>Start</button>
                 </div>
             </Styled.View>
-            <Styled.Training>
+            <Styled.Training ref={trainingRef}>
                 <h3>{data?.data[0].set_name}</h3>
                 <Styled.Block>
                     <p>{exercises[currentIndex].exercise_name}</p>

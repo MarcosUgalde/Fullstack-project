@@ -8,20 +8,28 @@ const Body = styled.section`
 const View = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, rgba(25,25,25,1) 0%, rgba(96,96,96,1) 50%, rgba(138,138,138,1) 100%);
     color: yellow;
     padding: 1em;
+    min-height: 100vh;
+
+    h1 {
+        font-size: 3em;
+    }
 `
 
 const Training = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background: linear-gradient(180deg, rgba(0,196,131,1) 0%, rgba(21,120,84,1) 50%, rgba(0,164,116,1) 100%);
     padding: 1em;
+    min-height: 100vh;
+
+    h3 {
+        font-size: 3em;
+    }
 `
 
 const Block = styled.section`
