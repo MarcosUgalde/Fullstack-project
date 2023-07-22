@@ -3,8 +3,11 @@ import { styled } from 'styled-components';
 const Body = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; 
+    align-items: center;
+    color: silver;
+    background-color: black;
+    padding: 1em;
+    min-height: 100vh;
 `
 const Form = styled.section`
     display: flex;
@@ -18,10 +21,11 @@ const Field = styled.section`
     display: flex;
     flex-direction: column; 
     justify-content: center;
+    align-items: center;
 `
 
 const Footer = styled.section`
-    display: flex;
+    
 `
 
 export default {

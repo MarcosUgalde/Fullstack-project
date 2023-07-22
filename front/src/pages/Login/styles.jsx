@@ -6,7 +6,8 @@ const Page = styled.section`
     align-items: center; 
     min-height: 100vh;
     background-color: black;
-    color: white;
+    color: silver;
+    padding-top: 2em;
 `
 const Questionaire = styled.section`
     display: flex;
@@ -20,10 +21,11 @@ const Item = styled.section`
     display: flex;
     flex-direction: column; 
     justify-content: center;
+    align-items: center;
 `
 
 const Footer = styled.section`
-    display: flex;
+    
 `
 
 export default {
