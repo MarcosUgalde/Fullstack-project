@@ -3,8 +3,10 @@ import { styled } from 'styled-components';
 const Page = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center; 
+    min-height: 100vh;
+    background-color: black;
+    color: white;
 `
 const Questionaire = styled.section`
     display: flex;
