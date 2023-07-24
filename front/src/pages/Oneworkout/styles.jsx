@@ -41,6 +41,7 @@ const Block = styled.section`
     border-radius: 10px;
     padding: 1em;
     margin-bottom: 1.5em;
+    box-shadow: 1px -1px 13px 6px rgba(204,202,204,1);
 `
 
 export default {

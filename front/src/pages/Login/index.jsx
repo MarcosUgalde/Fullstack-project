@@ -19,7 +19,7 @@ function Login() {
     const { mutate } = useMutation({
         mutationFn: auth.signin,
         onSuccess: (response) => {
-            if(response.success) queryClient.invalidateQueries({ queryKey: ["user"] })
+            if(response.success) queryClient.invalidateQueries({ queryKey: ["user"] }) && setLocation('/')
         }
     });
 
@@ -55,7 +55,7 @@ function Login() {
                     </form>
                 </Styled.Questionaire>
                 <Styled.Footer>
-                    Don't have an account? <a href="/signup"> Sign up here!</a>
+                    Do not have an account? <a href="/signup"> Sign up here!</a>
                 </Styled.Footer>
        </Styled.Page>
     )

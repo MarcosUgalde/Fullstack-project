@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { login } from '../../misc/templates'
 import { useMutation } from 'react-query'
 import { auth } from '../../services'
-
+import { useLocation } from 'wouter'
 
 function Register() {
 
@@ -11,13 +11,20 @@ function Register() {
 
     const { mutate } = useMutation({
         mutationFn: auth.register,
-        onSuccess: () => {}
+        onSuccess: (response) => {
+            console.log('response: ', response)
+            if(response.success) setLocation('/login')
+        }
     });
+
+    const [, setLocation ] = useLocation()
 
     const handleForm = (data) => {
         console.info('Form data: ', data)
         mutate(data)
     }
+
+
 
     const { errors } = login
 
