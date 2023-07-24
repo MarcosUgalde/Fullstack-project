@@ -8,12 +8,15 @@ const Body = styled.section`
     background-color: black;
     padding: 2em;
     min-height: 100vh;
+    font-size: 1.2em;
+    color: silver;
 `
 const Form = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: silver;
 `
 
 export default {
