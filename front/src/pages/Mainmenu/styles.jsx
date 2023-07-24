@@ -41,7 +41,7 @@ const Button = styled.section`
     transition: font-size 0.5s ease-in-out;
 
     &:hover {
-        font-size: 1.1em;
+        background-color: #AFC800;
     }
 `
 
