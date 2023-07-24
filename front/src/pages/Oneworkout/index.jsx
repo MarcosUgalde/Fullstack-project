@@ -30,7 +30,10 @@ function Oneworkout() {
     deleteWorkout(data?.data[0].workout_name)
     console.log(data?.data[0].workout_name)
    }
-   
+
+   const handleStopWorkout = () => {
+    window.location.reload();
+   }
    
    useEffect(() => {
        if(remainingDuration === 0) {
@@ -76,8 +79,7 @@ function Oneworkout() {
                     <p>{exercises[currentIndex].description}</p>
                     <p>Next exercise: {exercises[currentIndex + 1] ? exercises[currentIndex + 1].exercise_name : 'Congratulations! You finished!'}</p>
                 </Styled.Block>
-                <button>Pause</button>
-                <button>Stop Workout</button>
+                <button onClick={handleStopWorkout}>Stop Workout</button>
             </Styled.Training>
         </Styled.Body>
     )

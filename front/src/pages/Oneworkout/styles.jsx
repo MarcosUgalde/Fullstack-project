@@ -40,6 +40,7 @@ const Block = styled.section`
     background: linear-gradient(90deg, rgba(255,255,255,0.47942927170868344) 0%, rgba(198,226,215,0.5130427170868348) 50%, rgba(203,255,240,0.5690651260504201) 100%);
     border-radius: 10px;
     padding: 1em;
+    margin-bottom: 1.5em;
 `
 
 export default {
