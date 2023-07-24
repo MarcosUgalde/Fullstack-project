@@ -22,9 +22,15 @@ const Main = () => {
         <Route path='/'>  
           <Guard component={Mainmenu} />
         </Route>
-        <Route path='/new-workout' component={Createworkout} />
-        <Route path='/workouts' component={Allworkouts} />
-        <Route path='/workout/:id' component={Oneworkout} />
+        <Route path='/new-workout'>
+          <Guard component={Createworkout} />
+        </Route> 
+        <Route path='/workouts'>
+          <Guard component={Allworkouts} />
+        </Route> 
+        <Route path='/workout/:id'>
+          <Guard component={Oneworkout} />
+        </Route> 
         <Redirect to='/login' />
       </Switch>
     </Provider>
