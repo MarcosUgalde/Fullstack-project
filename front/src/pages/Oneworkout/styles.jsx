@@ -44,9 +44,19 @@ const Block = styled.section`
     box-shadow: 1px -1px 13px 6px rgba(204,202,204,1);
 `
 
+const Exercise = styled.p`
+    font-size: 1.5em;
+`
+
+const Timer = styled.p`
+    font-size: 5em;
+`
+
 export default {
     Body,
     View,
     Training,
     Block,
+    Exercise,
+    Timer,
 }

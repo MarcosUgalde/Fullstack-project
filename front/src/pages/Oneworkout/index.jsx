@@ -74,8 +74,8 @@ function Oneworkout() {
             <Styled.Training ref={trainingRef}>
                 <h3>{data?.data[0].set_name}</h3>
                 <Styled.Block>
-                    <p>{exercises[currentIndex].exercise_name}</p>
-                    <p>{remainingDuration}</p>
+                    <Styled.Exercise>{exercises[currentIndex].exercise_name}</Styled.Exercise>
+                    <Styled.Timer><strong>{remainingDuration}</strong></Styled.Timer>
                     <p>{exercises[currentIndex].description}</p>
                     <p>Next exercise: {exercises[currentIndex + 1] ? exercises[currentIndex + 1].exercise_name : 'Congratulations! You finished!'}</p>
                 </Styled.Block>
