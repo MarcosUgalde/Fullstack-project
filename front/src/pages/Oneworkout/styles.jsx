@@ -16,7 +16,19 @@ const View = styled.section`
 
     h1 {
         font-size: 3em;
+        color: #FF3838;
     }
+
+    h3 {
+        font-size: 1.4em;
+    }
+`
+
+const Buttons = styled.section`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 270px;
 `
 
 const Training = styled.section`
@@ -56,6 +68,7 @@ const Timer = styled.p`
 export default {
     Body,
     View,
+    Buttons,
     Training,
     Block,
     Exercise,

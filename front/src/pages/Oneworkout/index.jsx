@@ -66,10 +66,10 @@ function Oneworkout() {
                         )
                     })}
                 </ul>
-                <div>
+                <Styled.Buttons>
                     <button onClick={handleDelete}>Delete Workout</button>
                     <button onClick={startWorkout}>Start</button>
-                </div>
+                </Styled.Buttons>
             </Styled.View>
             <Styled.Training ref={trainingRef}>
                 <h3>{data?.data[0].set_name}</h3>
