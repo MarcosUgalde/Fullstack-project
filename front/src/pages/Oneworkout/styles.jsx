@@ -29,6 +29,7 @@ const Training = styled.section`
 
     h3 {
         font-size: 3em;
+        color: gold;
     }
 `
 
